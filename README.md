@@ -1,2 +1,2 @@
-# plantee_app
+# Plantee App
 A flutter app
