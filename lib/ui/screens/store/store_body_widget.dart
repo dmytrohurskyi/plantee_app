@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
+import 'package:plantee_app/ui/screens/store/widgets/main_stack_widget.dart';
 
 class StoreBodyWidget extends StatelessWidget {
   final StoreScreenViewModel viewModel;
@@ -19,15 +20,6 @@ class StoreBodyWidget extends StatelessWidget {
         ),
       );
     }
-    return Container(
-      color: Colors.green[700],
-      height: double.infinity,
-      width: double.infinity,
-      child: const SafeArea(
-        child: Center(
-          child: Text('Hello!'),
-        ),
-      ),
-    );
+    return MainStackWidget();
   }
 }
