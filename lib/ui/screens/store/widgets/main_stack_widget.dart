@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:plantee_app/ui/screens/store/widgets/background_container_widget.dart';
+import 'package:plantee_app/ui/screens/store/widgets/search_bar_widget.dart';
+import 'package:plantee_app/ui/screens/store/widgets/top_section_widget.dart';
+import 'package:plantee_app/ui/screens/store/widgets/top_text_widget.dart';
 
 class MainStackWidget extends StatelessWidget {
   const MainStackWidget({Key? key}) : super(key: key);
@@ -11,20 +14,12 @@ class MainStackWidget extends StatelessWidget {
         const BackgroundContainerWidget(),
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(13.0),
             child: Column(
               children: const [
-                Text(
-                  'Find the perfect plant\nfor your home.',
-                  style: TextStyle(
-                    letterSpacing: 2,
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w300,
-                  ),
-                  maxLines: 2,
-                ),
+                TopSectionWidget(),
+                TopTextWidget(),
+                SearchBarWidget(),
               ],
             ),
           ),
