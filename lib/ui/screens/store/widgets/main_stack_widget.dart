@@ -20,6 +20,7 @@ class MainStackWidget extends StatelessWidget {
                 TopSectionWidget(),
                 TopTextWidget(),
                 SearchBarWidget(),
+
               ],
             ),
           ),

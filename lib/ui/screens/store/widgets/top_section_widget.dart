@@ -8,10 +8,19 @@ class TopSectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Icon(Icons.menu, color: Colors.white, size: 30,),
-        LogoWidget(),
-        SizedBox(width: 26, height: 26,)
+      children: [
+        InkWell(
+            onTap: () => Scaffold.of(context).openDrawer(),
+            child: const Icon(
+              Icons.menu,
+              color: Colors.white,
+              size: 30,
+            )),
+        const LogoWidget(),
+        const SizedBox(
+          width: 26,
+          height: 26,
+        )
       ],
     );
   }

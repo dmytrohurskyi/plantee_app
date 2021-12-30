@@ -18,9 +18,7 @@ class PlanteeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Plantee',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+      theme: ThemeData(),
       routes: routes,
       initialRoute: '/',
     );
