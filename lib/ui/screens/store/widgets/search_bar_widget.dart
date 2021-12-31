@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
@@ -7,8 +8,9 @@ class SearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(top: 45, bottom: 40),
+      padding: EdgeInsets.only(top: 40, bottom: 40),
       child: TextField(
+        keyboardType: TextInputType.text,
         maxLines: 2,
         minLines: 1,
         style: TextStyle(

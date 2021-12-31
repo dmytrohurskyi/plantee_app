@@ -15,7 +15,7 @@ class DrawerItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, top: 25),
+      padding: const EdgeInsets.only(left: 15, top: 30),
       child: InkWell(
         onTap: onPressed,
         child: Row(

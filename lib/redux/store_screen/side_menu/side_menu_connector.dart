@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:plantee_app/redux/app/app_state.dart';
 import 'package:plantee_app/ui/screens/side_menu/sidemenu_drawer.dart';
-import 'package:plantee_app/ui/screens/side_menu/sidemenu_drawer_viewmodel.dart';
-import 'package:plantee_app/ui/screens/store/store_screen.dart';
-import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
+import 'package:plantee_app/ui/screens/side_menu/sidemenu_drawer_view_model.dart';
 
 class SidemenuConnector extends StatelessWidget {
   const SidemenuConnector({Key? key}) : super(key: key);
