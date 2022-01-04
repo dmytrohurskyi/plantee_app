@@ -1,14 +1,21 @@
 import 'package:equatable/equatable.dart';
+import 'package:plantee_app/ui/screens/bottom_nav_bar/bottom_nav_bar_widget.dart';
 
 class BottomNavBarViewModel extends Equatable {
-  final int selectedScreenIndex; // It'd be grate to implement this with enum
+  final List<NavBarItemProp> navBarItemProps;
+  final NavBarItemType currentNavBarItemType;
+  final Function(int) changeTab;
 
   const BottomNavBarViewModel({
-    required this.selectedScreenIndex,
+    required this.currentNavBarItemType,
+    required this.navBarItemProps,
+    required this.changeTab,
   });
 
   @override
   List<Object> get props => [
-        selectedScreenIndex,
+        currentNavBarItemType,
+        navBarItemProps,
+        changeTab,
       ];
 }

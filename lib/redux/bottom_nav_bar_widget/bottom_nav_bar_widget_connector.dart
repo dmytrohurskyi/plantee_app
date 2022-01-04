@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:plantee_app/redux/app/app_state.dart';
+import 'package:plantee_app/redux/bottom_nav_bar_widget/bottom_nav_bar_widget_action.dart';
 import 'package:plantee_app/ui/screens/bottom_nav_bar/bottom_nav_bar_view_model.dart';
 import 'package:plantee_app/ui/screens/bottom_nav_bar/bottom_nav_bar_widget.dart';
 
@@ -13,8 +14,13 @@ class BottomNavBarWidgetConnector extends StatelessWidget {
       distinct: true,
       converter: (store) {
         return BottomNavBarViewModel(
-          selectedScreenIndex:
-              store.state.bottomNavBarWidgetState.selectedScreenIndex,
+          currentNavBarItemType:
+              store.state.bottomNavBarWidgetState.currentNavBarItemType,
+          navBarItemProps: generateNavBarItemProps(),
+          changeTab: (index) {
+            NavBarItemType _itemType = NavBarItemType.values[index];
+            store.dispatch(ChangeTabAction(_itemType));
+          },
         );
       },
       builder: (_, viewModel) {
@@ -24,4 +30,30 @@ class BottomNavBarWidgetConnector extends StatelessWidget {
       },
     );
   }
+}
+
+List<NavBarItemProp> generateNavBarItemProps() {
+  return [
+    NavBarItemProp(
+      type: NavBarItemType.STORE,
+      item: const BottomNavigationBarItem(
+        label: 'Store',
+        icon: Icon(Icons.storefront_outlined),
+      ),
+    ),
+    NavBarItemProp(
+      type: NavBarItemType.CART,
+      item: const BottomNavigationBarItem(
+        label: 'Cart',
+        icon: Icon(Icons.shopping_cart_outlined),
+      ),
+    ),
+    NavBarItemProp(
+      type: NavBarItemType.ORDERS,
+      item: const BottomNavigationBarItem(
+        label: 'Orders',
+        icon: Icon(Icons.list_alt_outlined),
+      ),
+    ),
+  ];
 }

@@ -15,7 +15,7 @@ class _CategoryPageViewWidgetState extends State<CategoryPageViewWidget> {
     return Column(
       children: [
         SizedBox(
-          height: 315,
+          height: 340,
           width: double.maxFinite,
           child: PageView(
             children: [

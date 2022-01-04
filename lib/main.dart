@@ -12,6 +12,8 @@ void main() {
 }
 
 class PlanteeApp extends StatelessWidget {
+  static final navKey = GlobalKey<NavigatorState>();
+
   const PlanteeApp({Key? key}) : super(key: key);
 
   @override

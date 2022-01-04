@@ -1,27 +1,35 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:plantee_app/ui/screens/bottom_nav_bar/bottom_nav_bar_widget.dart';
 
 @immutable
 class BottomNavBarWidgetState extends Equatable {
-  final int selectedScreenIndex;
+  final List<NavBarItemProp> navBarItemProps;
+  final NavBarItemType currentNavBarItemType;
+
 
   const BottomNavBarWidgetState({
-    required this.selectedScreenIndex,
+    required this.navBarItemProps,
+    required this.currentNavBarItemType,
   });
 
   factory BottomNavBarWidgetState.initial() {
     return const BottomNavBarWidgetState(
-      selectedScreenIndex: 0,
+      navBarItemProps: [],
+      currentNavBarItemType: NavBarItemType.STORE,
     );
   }
 
   BottomNavBarWidgetState copyWith({
-    int? selectedScreenIndex
+    List<NavBarItemProp>? navBarItemProps,
+    NavBarItemType? currentNavBarItemType
   }) {
     return BottomNavBarWidgetState(
-        selectedScreenIndex: selectedScreenIndex ?? this.selectedScreenIndex);
+        navBarItemProps: navBarItemProps ?? this.navBarItemProps,
+        currentNavBarItemType: currentNavBarItemType ??
+            this.currentNavBarItemType);
   }
 
   @override
-  List<Object> get props => [selectedScreenIndex];
+  List<Object> get props => [navBarItemProps, currentNavBarItemType];
 }
