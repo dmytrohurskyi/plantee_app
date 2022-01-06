@@ -32,7 +32,7 @@ dependencies:
   flutter_redux:
   equatable:
   firebase_core:
-  flutter_firebase_firestore:
+  cloud_firestore:
 
 
   # The following adds the Cupertino Icons font to your application.
