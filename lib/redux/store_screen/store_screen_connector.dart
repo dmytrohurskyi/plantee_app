@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:plantee_app/redux/app/app_state.dart';
+import 'package:plantee_app/redux/store_screen/store_screen_action.dart';
 import 'package:plantee_app/ui/screens/store/store_screen.dart';
 import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
 
@@ -13,9 +14,14 @@ class StoreScreenConnector extends StatelessWidget {
       distinct: true,
       converter: (store) {
         return StoreScreenViewModel(
-          error: store.state.storeScreenState.error,
-          isLoading: store.state.storeScreenState.isLoading,
-        );
+            error: store.state.storeScreenState.error,
+            isLoading: store.state.storeScreenState.isLoading,
+            categoryPageViewItem:
+                store.state.storeScreenState.categoryPageViewItem,
+            onCategoryChanged: (categoryPageItemType) {
+              print(categoryPageItemType);
+              store.dispatch(ChangeCategoryPageAction(categoryPageItemType));
+            });
       },
       builder: (_, viewModel) {
         return StoreScreen(

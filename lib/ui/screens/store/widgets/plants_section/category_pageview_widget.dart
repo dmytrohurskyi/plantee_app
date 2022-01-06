@@ -1,32 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
+
+enum CategoryPageViewItem { topPicks, indoor, outdoor }
 
 class CategoryPageViewWidget extends StatefulWidget {
-  const CategoryPageViewWidget({Key? key}) : super(key: key);
+  final StoreScreenViewModel viewModel;
+  final PageController categoryPageController;
+
+  const CategoryPageViewWidget({
+    Key? key,
+    required this.viewModel,
+    required this.categoryPageController,
+  }) : super(key: key);
 
   @override
   _CategoryPageViewWidgetState createState() => _CategoryPageViewWidgetState();
 }
 
 class _CategoryPageViewWidgetState extends State<CategoryPageViewWidget> {
+  /*@override
+  void didUpdateWidget(covariant CategoryPageViewWidget oldWidget) {
+    widget.categoryPageController.animateToPage(
+        widget.viewModel.categoryPageViewItem.index,
+        duration: const Duration(microseconds: 500),
+        curve: Curves.easeIn);
+    super.didUpdateWidget(oldWidget);
+  }*/
+
   @override
   Widget build(BuildContext context) {
-    //TabController _tabController = TabController(length: 3, vsync: this);
-
+    // widget.categoryPageController.animateToPage(widget.viewModel.categoryPageViewItem.index,
+    //     duration: const Duration(microseconds: 500), curve: Curves.easeInOut);
     return Column(
       children: [
         SizedBox(
-          height: 340,
+          height: 342,
           width: double.maxFinite,
           child: PageView(
+            controller: widget.categoryPageController,
             children: [
               Container(
                 color: Colors.red,
+                child: const Center(
+                  child: Text('Top Picks'),
+                ),
               ),
               Container(
                 color: Colors.green,
+                child: const Center(
+                  child: Text('Indoor'),
+                ),
               ),
               Container(
                 color: Colors.blueAccent,
+                child: const Center(
+                  child: Text('Outdoor'),
+                ),
               ),
             ],
           ),

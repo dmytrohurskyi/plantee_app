@@ -8,7 +8,7 @@ class TopTextWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 45),
+          padding: const EdgeInsets.only(top: 40),
           child: Column(
             children: const [
               Text(

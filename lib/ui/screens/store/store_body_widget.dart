@@ -20,6 +20,6 @@ class StoreBodyWidget extends StatelessWidget {
         ),
       );
     }
-    return const MainStackWidget();
+    return MainStackWidget(viewModel: viewModel,);
   }
 }
