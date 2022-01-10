@@ -27,6 +27,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.max,
       children: [
         Expanded(
           child: Column(
@@ -105,7 +106,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
               CategoryPageViewWidget(
                 viewModel: widget.viewModel,
                 categoryPageController: categoryPageController,

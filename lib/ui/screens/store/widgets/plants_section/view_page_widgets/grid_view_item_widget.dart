@@ -8,55 +8,63 @@ class GridViewItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Card(
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Card(
           color: Colors.transparent,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Image.network(
-                item.photoUrl,
-                width: 120,
-                height: 120,
+              Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Image.network(
+                  item.photoUrl,
+                  width: 140,
+                  height: 140,
+                ),
               ),
-              const SizedBox(
-                height: 3,
+              Expanded(
+                child: Text(item.category,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: Colors.white38,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w300,
+                    )),
               ),
-              Text(item.category,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Colors.white38,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w300,
-                  )),
-              const SizedBox(
-                height: 3,
-              ),
+              const SizedBox(height: 3),
               Expanded(
                 child: Text(
                   item.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.white,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w300,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const SizedBox(
-                height: 3,
+              const SizedBox(height: 3),
+              Expanded(
+                child: Text('\$ ${item.price}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w300,
+                    )),
               ),
-              Text('\$ ${item.price}',
-                  style: const TextStyle(
-                    fontSize: 17,
-                    color: Colors.white,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w300,
-                  )),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

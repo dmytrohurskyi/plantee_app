@@ -25,7 +25,7 @@ class _CategoryPageViewWidgetState extends State<CategoryPageViewWidget> {
     return Column(
       children: [
         SizedBox(
-          height: 342,
+          height: 335,
           width: double.maxFinite,
           child: PageView(
             controller: widget.categoryPageController,
