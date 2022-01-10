@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:plantee_app/redux/app/app_state.dart';
@@ -6,7 +7,11 @@ import 'package:plantee_app/redux/store.dart';
 import 'package:plantee_app/redux/store_screen/side_menu/side_menu_connector.dart';
 import 'package:plantee_app/redux/store_screen/store_screen_connector.dart';
 
-void main() {
+void main() async{
+  // Firebase setup
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(StoreProvider<AppState>(
     child: const PlanteeApp(),
     store: createStore(),

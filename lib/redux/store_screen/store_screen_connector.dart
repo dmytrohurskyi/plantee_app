@@ -12,14 +12,16 @@ class StoreScreenConnector extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, StoreScreenViewModel>(
       distinct: true,
+      onInit: (store) => store.dispatch(RequestItemsDataEventsAction()),
+      onDispose: (store) => store.dispatch(CancelItemsDataEventsAction()),
       converter: (store) {
         return StoreScreenViewModel(
+            storeItems: store.state.storeScreenState.storeItems,
             error: store.state.storeScreenState.error,
             isLoading: store.state.storeScreenState.isLoading,
             categoryPageViewItem:
                 store.state.storeScreenState.categoryPageViewItem,
             onCategoryChanged: (categoryPageItemType) {
-              print(categoryPageItemType);
               store.dispatch(ChangeCategoryPageAction(categoryPageItemType));
             });
       },

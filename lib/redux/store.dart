@@ -10,8 +10,8 @@ Store<AppState> createStore() {
     appReducer,
     initialState: AppState.initial(),
     middleware: [
-      /*StoreScreenMiddleware(),
-      AppNavigationMiddleware(),*/
+      StoreScreenMiddleware(),
+      //AppNavigationMiddleware(),
     ],
   );
 }
