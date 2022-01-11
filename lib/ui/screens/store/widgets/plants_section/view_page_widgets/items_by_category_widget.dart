@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
 import 'package:plantee_app/ui/screens/store/widgets/plants_section/view_page_widgets/grid_view_item_widget.dart';
 
-class TopPicksWidget extends StatelessWidget {
+class ItemsByCategoryWidget extends StatelessWidget {
   final StoreScreenViewModel viewModel;
 
-  const TopPicksWidget({Key? key, required this.viewModel}) : super(key: key);
+  const ItemsByCategoryWidget({Key? key, required this.viewModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
-import 'package:plantee_app/ui/screens/store/widgets/plants_section/view_page_widgets/top_picks_widget.dart';
+import 'package:plantee_app/ui/screens/store/widgets/plants_section/view_page_widgets/items_by_category_widget.dart';
 
 enum CategoryPageViewItem { topPicks, indoor, outdoor }
 
@@ -29,19 +29,9 @@ class _CategoryPageViewWidgetState extends State<CategoryPageViewWidget> {
           child: PageView(
             controller: widget.categoryPageController,
             children: [
-              TopPicksWidget(viewModel: widget.viewModel),
-              Container(
-                color: Colors.green,
-                child: const Center(
-                  child: Text('Indoor'),
-                ),
-              ),
-              Container(
-                color: Colors.blueAccent,
-                child: const Center(
-                  child: Text('Outdoor'),
-                ),
-              ),
+              ItemsByCategoryWidget(viewModel: widget.viewModel),
+              ItemsByCategoryWidget(viewModel: widget.viewModel),
+              ItemsByCategoryWidget(viewModel: widget.viewModel),
             ],
           ),
         )

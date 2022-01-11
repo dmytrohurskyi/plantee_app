@@ -20,9 +20,11 @@ class StoreScreenConnector extends StatelessWidget {
             error: store.state.storeScreenState.error,
             isLoading: store.state.storeScreenState.isLoading,
             categoryPageViewItem:
-                store.state.storeScreenState.categoryPageViewItem,
+            store.state.storeScreenState.categoryPageViewItem,
             onCategoryChanged: (categoryPageItemType) {
+              store.dispatch(CancelItemsDataEventsAction());
               store.dispatch(ChangeCategoryPageAction(categoryPageItemType));
+              store.dispatch(RequestItemsDataEventsAction());
             });
       },
       builder: (_, viewModel) {

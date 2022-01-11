@@ -19,7 +19,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
   void didUpdateWidget(covariant PlantsSectionWidget oldWidget) {
     categoryPageController.animateToPage(
         widget.viewModel.categoryPageViewItem.index,
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.easeIn);
     super.didUpdateWidget(oldWidget);
   }
@@ -53,10 +53,13 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                       widget.viewModel
                           .onCategoryChanged(CategoryPageViewItem.topPicks);
                     },
-                    child: const Text('Top Pics'),
+                    child: const Text('Top Picks'),
                     style: TextButton.styleFrom(
                       primary: Colors.white,
-                      backgroundColor: Colors.white70,
+                      backgroundColor: widget.viewModel.categoryPageViewItem !=
+                              CategoryPageViewItem.topPicks
+                          ? Colors.white60
+                          : const Color(0xc8c4d909),
                       textStyle: const TextStyle(
                         letterSpacing: 1,
                         fontSize: 18,
@@ -75,7 +78,10 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                     child: const Text('Indoor'),
                     style: TextButton.styleFrom(
                       primary: Colors.white,
-                      backgroundColor: Colors.white70,
+                      backgroundColor: widget.viewModel.categoryPageViewItem !=
+                              CategoryPageViewItem.indoor
+                          ? Colors.white60
+                          : const Color(0xc8c4d909),
                       textStyle: const TextStyle(
                         letterSpacing: 1,
                         fontSize: 18,
@@ -94,7 +100,10 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                     child: const Text('Outdoor'),
                     style: TextButton.styleFrom(
                       primary: Colors.white,
-                      backgroundColor: Colors.white70,
+                      backgroundColor: widget.viewModel.categoryPageViewItem !=
+                              CategoryPageViewItem.outdoor
+                          ? Colors.white60
+                          : const Color(0xc8c4d909),
                       textStyle: const TextStyle(
                         letterSpacing: 1,
                         fontSize: 18,
