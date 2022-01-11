@@ -17,6 +17,9 @@ final storeScreenReducer = combineReducers<StoreScreenState>(
     TypedReducer<StoreScreenState, ItemsOnDataEventAction>(
       _setStoreItemsList,
     ),
+    TypedReducer<StoreScreenState, ItemsFetchingOnErrorAction>(
+      _itemsFetchingOnErrorAction,
+    ),
   ],
 );
 
@@ -41,16 +44,21 @@ StoreScreenState _cancelItemsSubscription(
   state.itemsSubscription?.cancel();
   return state.copyWith(itemsSubscription: null);
 }
+
 StoreScreenState _setStoreItemsList(
   StoreScreenState state,
   ItemsOnDataEventAction action,
 ) {
   List<Item> itemList = [];
-
   action.list.forEach((element) {
     itemList.add(Item.fromMap(element));
   });
-  return state.copyWith(storeItems: itemList); //storeItems: list
+  return state.copyWith(isLoading: false, error: '', storeItems: itemList);
 }
 
-
+StoreScreenState _itemsFetchingOnErrorAction(
+  StoreScreenState state,
+  ItemsFetchingOnErrorAction action,
+) {
+  return state.copyWith(isLoading: false, error: action.error);
+}

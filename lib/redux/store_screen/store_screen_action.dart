@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:plantee_app/ui/screens/store/widgets/plants_section/category_pageview_widget.dart';
 
 class ChangeCategoryPageAction {
@@ -23,4 +21,10 @@ class ItemsOnDataEventAction {
   final List list;
 
   ItemsOnDataEventAction(this.list);
+}
+
+class ItemsFetchingOnErrorAction {
+  final String error;
+
+  ItemsFetchingOnErrorAction(this.error);
 }

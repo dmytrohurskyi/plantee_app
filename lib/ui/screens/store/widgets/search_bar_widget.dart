@@ -8,7 +8,7 @@ class SearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(top: 25, bottom: 30),
+      padding: EdgeInsets.only(top: 20, bottom: 15),
       child: TextField(
         keyboardType: TextInputType.text,
         maxLines: 2,

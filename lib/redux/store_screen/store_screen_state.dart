@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:plantee_app/data_models/item.dart';
@@ -23,10 +21,9 @@ class StoreScreenState extends Equatable {
   });
 
   factory StoreScreenState.initial() {
-
     return const StoreScreenState(
       error: '',
-      isLoading: false,
+      isLoading: true,
       categoryPageViewItem: CategoryPageViewItem.topPicks,
       storeItems: [],
       itemsSubscription: null,

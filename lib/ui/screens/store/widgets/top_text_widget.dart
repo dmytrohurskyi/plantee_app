@@ -8,7 +8,7 @@ class TopTextWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 30),
           child: Column(
             children: const [
               Text(
@@ -23,7 +23,7 @@ class TopTextWidget extends StatelessWidget {
                 maxLines: 2,
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Text(
                 'Create a little garden in your home',

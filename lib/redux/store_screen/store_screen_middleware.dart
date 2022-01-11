@@ -29,8 +29,8 @@ class StoreScreenMiddleware extends MiddlewareClass<AppState> {
       final list = snapshot.docs.map((doc) => doc.data()).toList();
       store.dispatch(ItemsOnDataEventAction(list));
 
-    }, onError: (_) {
-      //TODO: handle error
+    }, onError: (error) {
+      store.dispatch(ItemsFetchingOnErrorAction(error.toString()));
     });
     store.dispatch(ItemsDataEventsRequestedAction(subscription));
   }

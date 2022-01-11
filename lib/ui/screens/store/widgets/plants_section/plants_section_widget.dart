@@ -19,7 +19,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
   void didUpdateWidget(covariant PlantsSectionWidget oldWidget) {
     categoryPageController.animateToPage(
         widget.viewModel.categoryPageViewItem.index,
-        duration: const Duration(microseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn);
     super.didUpdateWidget(oldWidget);
   }
@@ -44,7 +44,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                 ),
               ),
               const SizedBox(
-                height: 8,
+                height: 5,
               ),
               Row(
                 children: [
@@ -66,7 +66,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 13),
+                  const SizedBox(width: 15),
                   TextButton(
                     onPressed: () {
                       widget.viewModel
@@ -85,7 +85,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 13),
+                  const SizedBox(width: 15),
                   TextButton(
                     onPressed: () {
                       widget.viewModel
@@ -106,7 +106,7 @@ class _PlantsSectionWidgetState extends State<PlantsSectionWidget> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 7),
               CategoryPageViewWidget(
                 viewModel: widget.viewModel,
                 categoryPageController: categoryPageController,

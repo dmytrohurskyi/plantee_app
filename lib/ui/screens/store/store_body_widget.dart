@@ -10,16 +10,8 @@ class StoreBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (viewModel.isLoading) {
-      return Container(
-        color: Colors.black12,
-        child: const Center(
-          child: CupertinoActivityIndicator(
-            animating: true,
-          ),
-        ),
-      );
-    }
-    return MainStackWidget(viewModel: viewModel,);
+    return MainStackWidget(
+      viewModel: viewModel,
+    );
   }
 }

@@ -19,18 +19,17 @@ class CategoryPageViewWidget extends StatefulWidget {
 }
 
 class _CategoryPageViewWidgetState extends State<CategoryPageViewWidget> {
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
-          height: 335,
+          height: 373,
           width: double.maxFinite,
           child: PageView(
             controller: widget.categoryPageController,
             children: [
-              TopPicksWidget(storeItems: widget.viewModel.storeItems),
+              TopPicksWidget(viewModel: widget.viewModel),
               Container(
                 color: Colors.green,
                 child: const Center(
