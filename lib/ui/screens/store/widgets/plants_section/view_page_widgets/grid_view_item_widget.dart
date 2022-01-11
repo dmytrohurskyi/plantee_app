@@ -8,63 +8,65 @@ class GridViewItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 8.0),
-        child: Card(
-          color: Colors.transparent,
+    return Card(
+          color: const Color(0x0afff500),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Image.network(
-                  item.photoUrl,
-                  width: 140,
-                  height: 140,
+            mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Image.network(
+                    item.photoUrl,
+                    width: 155,
+                    height: 155,
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!
+                              : null,
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Text(item.category,
+                Text(item.category,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 13,
+                      fontSize: 14,
                       color: Colors.white38,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w300,
                     )),
-              ),
-              const SizedBox(height: 3),
-              Expanded(
-                child: Text(
+                const SizedBox(height: 3),
+                Text(
                   item.title,
+                  textAlign: TextAlign.center,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 17,
                     color: Colors.white,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-              ),
-              const SizedBox(height: 3),
-              Expanded(
-                child: Text('\$ ${item.price}',
+                const SizedBox(height: 3),
+                Text('\$ ${item.price}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 17,
+                      fontSize: 16,
                       color: Colors.white,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w300,
                     )),
-              ),
-            ],
-          ),
-        ),
-      ),
+              ],
+            ),
     );
   }
 }

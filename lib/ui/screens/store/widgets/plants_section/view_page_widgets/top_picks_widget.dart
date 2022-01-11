@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:plantee_app/data_models/item.dart';
-import 'package:plantee_app/ui/screens/store/store_screen_view_model.dart';
 import 'package:plantee_app/ui/screens/store/widgets/plants_section/view_page_widgets/grid_view_item_widget.dart';
 
 class TopPicksWidget extends StatelessWidget {
@@ -12,7 +11,9 @@ class TopPicksWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: 0.7,
         crossAxisCount: 2,
+        crossAxisSpacing: 5,
         mainAxisSpacing: 5,
       ),
       itemCount: storeItems.length,

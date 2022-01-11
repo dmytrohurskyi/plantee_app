@@ -30,7 +30,7 @@ class StoreScreenMiddleware extends MiddlewareClass<AppState> {
       store.dispatch(ItemsOnDataEventAction(list));
 
     }, onError: (_) {
-      //TODO: handle error});
+      //TODO: handle error
     });
     store.dispatch(ItemsDataEventsRequestedAction(subscription));
   }
