@@ -1,4 +1,6 @@
-class StoreItem {
+import 'package:equatable/equatable.dart';
+
+class StoreItem extends Equatable {
   final String id;
   final String title;
   final dynamic price;
@@ -14,39 +16,6 @@ class StoreItem {
     required this.category,
     required this.type,
   });
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is StoreItem &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          title == other.title &&
-          price == other.price &&
-          photoUrl == other.photoUrl &&
-          category == other.category &&
-          type == other.type);
-
-  @override
-  int get hashCode =>
-      id.hashCode ^
-      title.hashCode ^
-      price.hashCode ^
-      photoUrl.hashCode ^
-      category.hashCode ^
-      type.hashCode;
-
-  @override
-  String toString() {
-    return 'Item{' +
-        ' id: $id,' +
-        ' title: $title,' +
-        ' price: $price,' +
-        ' photoUrl: $photoUrl,' +
-        ' category: $category,' +
-        ' type: $type,' +
-        '}';
-  }
 
   StoreItem copyWith({
     String? id,
@@ -87,4 +56,10 @@ class StoreItem {
       type: json['type'] as String,
     );
   }
+
+  @override
+  List<Object?> get props => [id, title, price, photoUrl, category, type];
+
+  @override
+  bool get stringify => true;
 }
