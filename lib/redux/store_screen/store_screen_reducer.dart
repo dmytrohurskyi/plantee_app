@@ -51,7 +51,7 @@ StoreScreenState _setStoreItemsList(
 ) {
   List<StoreItem> itemList = [];
   action.list.forEach((element) {
-    itemList.add(StoreItem.fromMap(element));
+    itemList.add(StoreItem.fromJson(element));
   });
   return state.copyWith(isLoading: false, error: '', storeItems: itemList);
 }

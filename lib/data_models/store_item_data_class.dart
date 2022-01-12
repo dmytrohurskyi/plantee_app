@@ -66,7 +66,7 @@ class StoreItem {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'title': title,
@@ -77,14 +77,14 @@ class StoreItem {
     };
   }
 
-  factory StoreItem.fromMap(Map<String, dynamic> map) {
+  factory StoreItem.fromJson(Map<String, dynamic> json) {
     return StoreItem(
-      id: map['id'] as String,
-      title: map['title'] as String,
-      price: map['price'] as dynamic,
-      photoUrl: map['photoUrl'] as String,
-      category: map['category'] as String,
-      type: map['type'] as String,
+      id: json['id'] as String,
+      title: json['title'] as String,
+      price: json['price'] as dynamic,
+      photoUrl: json['photoUrl'] as String,
+      category: json['category'] as String,
+      type: json['type'] as String,
     );
   }
 }
