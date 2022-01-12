@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:plantee_app/data_models/item.dart';
+import 'package:plantee_app/data_models/store_item_data_class.dart';
 import 'package:plantee_app/ui/screens/store/widgets/plants_section/category_pageview_widget.dart';
 
 @immutable
@@ -9,7 +9,7 @@ class StoreScreenState extends Equatable {
   final String error;
   final bool isLoading;
   final CategoryPageViewItem categoryPageViewItem;
-  final List<Item> storeItems;
+  final List<StoreItem> storeItems;
   final StreamSubscription? itemsSubscription;
 
   const StoreScreenState({
@@ -34,7 +34,7 @@ class StoreScreenState extends Equatable {
     String? error,
     bool? isLoading,
     CategoryPageViewItem? categoryPageViewItem,
-    List<Item>? storeItems,
+    List<StoreItem>? storeItems,
     StreamSubscription? itemsSubscription,
   }) {
     return StoreScreenState(

@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:equatable/equatable.dart';
-import 'package:plantee_app/data_models/item.dart';
+import 'package:plantee_app/data_models/store_item_data_class.dart';
 import 'package:plantee_app/ui/screens/store/widgets/plants_section/category_pageview_widget.dart';
 
 class StoreScreenViewModel extends Equatable {
@@ -9,7 +7,7 @@ class StoreScreenViewModel extends Equatable {
   final bool isLoading;
   final CategoryPageViewItem categoryPageViewItem;
   final Function(CategoryPageViewItem) onCategoryChanged;
-  final List<Item> storeItems;
+  final List<StoreItem> storeItems;
 
   const StoreScreenViewModel(
       {required this.error,

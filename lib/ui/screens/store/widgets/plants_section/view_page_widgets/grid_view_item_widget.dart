@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:plantee_app/data_models/item.dart';
+import 'package:plantee_app/data_models/store_item_data_class.dart';
 
 class GridViewItemWidget extends StatelessWidget {
-  final Item item;
+  final StoreItem item;
 
   const GridViewItemWidget({Key? key, required this.item}) : super(key: key);
 

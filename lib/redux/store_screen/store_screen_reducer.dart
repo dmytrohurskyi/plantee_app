@@ -1,4 +1,4 @@
-import 'package:plantee_app/data_models/item.dart';
+import 'package:plantee_app/data_models/store_item_data_class.dart';
 import 'package:plantee_app/redux/store_screen/store_screen_action.dart';
 import 'package:plantee_app/redux/store_screen/store_screen_state.dart';
 import 'package:redux/redux.dart';
@@ -49,9 +49,9 @@ StoreScreenState _setStoreItemsList(
   StoreScreenState state,
   ItemsOnDataEventAction action,
 ) {
-  List<Item> itemList = [];
+  List<StoreItem> itemList = [];
   action.list.forEach((element) {
-    itemList.add(Item.fromMap(element));
+    itemList.add(StoreItem.fromMap(element));
   });
   return state.copyWith(isLoading: false, error: '', storeItems: itemList);
 }

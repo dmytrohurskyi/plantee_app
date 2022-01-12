@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-class Item {
+class StoreItem {
   final String id;
   final String title;
   final dynamic price;
@@ -8,9 +6,7 @@ class Item {
   final String category;
   final String type;
 
-//<editor-fold desc="Data Methods">
-
-  const Item({
+  const StoreItem({
     required this.id,
     required this.title,
     required this.price,
@@ -22,7 +18,7 @@ class Item {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is Item &&
+      (other is StoreItem &&
           runtimeType == other.runtimeType &&
           id == other.id &&
           title == other.title &&
@@ -52,7 +48,7 @@ class Item {
         '}';
   }
 
-  Item copyWith({
+  StoreItem copyWith({
     String? id,
     String? title,
     double? price,
@@ -60,7 +56,7 @@ class Item {
     String? category,
     String? type,
   }) {
-    return Item(
+    return StoreItem(
       id: id ?? this.id,
       title: title ?? this.title,
       price: price ?? this.price,
@@ -72,17 +68,17 @@ class Item {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': this.id,
-      'title': this.title,
-      'price': this.price,
-      'photoUrl': this.photoUrl,
-      'category': this.category,
-      'type': this.type,
+      'id': id,
+      'title': title,
+      'price': price,
+      'photoUrl': photoUrl,
+      'category': category,
+      'type': type,
     };
   }
 
-  factory Item.fromMap(Map<String, dynamic> map) {
-    return Item(
+  factory StoreItem.fromMap(Map<String, dynamic> map) {
+    return StoreItem(
       id: map['id'] as String,
       title: map['title'] as String,
       price: map['price'] as dynamic,
@@ -91,7 +87,4 @@ class Item {
       type: map['type'] as String,
     );
   }
-
-
-//</editor-fold>
 }
