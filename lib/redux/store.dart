@@ -11,7 +11,7 @@ Store<AppState> createStore() {
     initialState: AppState.initial(),
     middleware: [
       StoreScreenMiddleware(),
-      //AppNavigationMiddleware(),
+      AppNavigationMiddleware(),
     ],
   );
 }
