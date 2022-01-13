@@ -31,8 +31,10 @@ extension NavBarItemTypeExtension on NavBarItemType {
 class NavBarItemProp {
   final NavBarItemType type;
   final BottomNavigationBarItem item;
+  final Function() onClick;
 
-  NavBarItemProp({required this.type, required this.item});
+  NavBarItemProp(
+      {required this.type, required this.item, required this.onClick});
 }
 
 class BottomNavBarWidget extends StatelessWidget {
@@ -49,7 +51,7 @@ class BottomNavBarWidget extends StatelessWidget {
       unselectedItemColor: Colors.white70,
       selectedItemColor: Colors.white,
       iconSize: 26,
-      onTap: viewModel.changeTab,
+      onTap: (index) => viewModel.navBarItemProps[index].onClick(),
       currentIndex: viewModel.currentNavBarItemType.index,
       items: [
         viewModel.navBarItemProps[0].item,

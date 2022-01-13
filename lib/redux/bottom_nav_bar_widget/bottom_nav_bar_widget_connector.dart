@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:plantee_app/redux/app/app_state.dart';
 import 'package:plantee_app/redux/bottom_nav_bar_widget/bottom_nav_bar_widget_action.dart';
@@ -16,11 +17,7 @@ class BottomNavBarWidgetConnector extends StatelessWidget {
         return BottomNavBarViewModel(
           currentNavBarItemType:
               store.state.bottomNavBarWidgetState.currentNavBarItemType,
-          navBarItemProps: generateNavBarItemProps(),
-          changeTab: (index) {
-            NavBarItemType _itemType = NavBarItemType.values[index];
-            store.dispatch(ChangeTabAction(_itemType));
-          },
+          navBarItemProps: generateNavBarItemProps(store),
         );
       },
       builder: (_, viewModel) {
@@ -32,34 +29,13 @@ class BottomNavBarWidgetConnector extends StatelessWidget {
   }
 }
 
-List<dynamic> generateNavBarItemProps() {
+List<dynamic> generateNavBarItemProps(Store<AppState> store) {
   return NavBarItemType.values.map((type) {
     return NavBarItemProp(
         type: type,
-        item:
-            BottomNavigationBarItem(label: type.label, icon: type.iconWidget));
+        item: BottomNavigationBarItem(label: type.label, icon: type.iconWidget),
+        onClick: () {
+          store.dispatch(ChangeTabAction(type));
+        });
   }).toList();
-  //[
-  /*NavBarItemProp(
-      type: NavBarItemType.STORE,
-      item: const BottomNavigationBarItem(
-        label: 'Store',
-        icon: Icon(Icons.storefront_outlined),
-      ),
-    ),
-    NavBarItemProp(
-      type: NavBarItemType.CART,
-      item: const BottomNavigationBarItem(
-        label: 'Cart',
-        icon: Icon(Icons.shopping_cart_outlined),
-      ),
-    ),
-    NavBarItemProp(
-      type: NavBarItemType.ORDERS,
-      item: const BottomNavigationBarItem(
-        label: 'Orders',
-        icon: Icon(Icons.list_alt_outlined),
-      ),
-    ),*/
-  //];
 }
