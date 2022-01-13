@@ -4,6 +4,30 @@ import 'package:plantee_app/ui/screens/bottom_nav_bar/bottom_nav_bar_view_model.
 
 enum NavBarItemType { STORE, CART, ORDERS }
 
+extension NavBarItemTypeExtension on NavBarItemType {
+  String get label {
+    switch (this) {
+      case NavBarItemType.STORE:
+        return 'Store';
+      case NavBarItemType.CART:
+        return 'Cart';
+      case NavBarItemType.ORDERS:
+        return 'Orders';
+    }
+  }
+
+  Widget get iconWidget {
+    switch (this) {
+      case NavBarItemType.STORE:
+        return const Icon(Icons.storefront_outlined);
+      case NavBarItemType.CART:
+        return const Icon(Icons.shopping_cart_outlined);
+      case NavBarItemType.ORDERS:
+        return const Icon(Icons.list_alt_outlined);
+    }
+  }
+}
+
 class NavBarItemProp {
   final NavBarItemType type;
   final BottomNavigationBarItem item;
@@ -25,7 +49,6 @@ class BottomNavBarWidget extends StatelessWidget {
       unselectedItemColor: Colors.white70,
       selectedItemColor: Colors.white,
       iconSize: 26,
-
       onTap: viewModel.changeTab,
       currentIndex: viewModel.currentNavBarItemType.index,
       items: [

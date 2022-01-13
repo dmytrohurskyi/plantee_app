@@ -32,9 +32,15 @@ class BottomNavBarWidgetConnector extends StatelessWidget {
   }
 }
 
-List<NavBarItemProp> generateNavBarItemProps() {
-  return [
-    NavBarItemProp(
+List<dynamic> generateNavBarItemProps() {
+  return NavBarItemType.values.map((type) {
+    return NavBarItemProp(
+        type: type,
+        item:
+            BottomNavigationBarItem(label: type.label, icon: type.iconWidget));
+  }).toList();
+  //[
+  /*NavBarItemProp(
       type: NavBarItemType.STORE,
       item: const BottomNavigationBarItem(
         label: 'Store',
@@ -54,6 +60,6 @@ List<NavBarItemProp> generateNavBarItemProps() {
         label: 'Orders',
         icon: Icon(Icons.list_alt_outlined),
       ),
-    ),
-  ];
+    ),*/
+  //];
 }

@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:plantee_app/ui/screens/bottom_nav_bar/bottom_nav_bar_widget.dart';
 
 class BottomNavBarViewModel extends Equatable {
-  final List<NavBarItemProp> navBarItemProps;
+  final List<dynamic> navBarItemProps;
   final NavBarItemType currentNavBarItemType;
   final Function(int) changeTab;
 
