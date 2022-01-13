@@ -17,7 +17,8 @@ class BottomNavBarWidgetConnector extends StatelessWidget {
         return BottomNavBarViewModel(
           currentNavBarItemType:
               store.state.bottomNavBarWidgetState.currentNavBarItemType,
-          navBarItemProps: generateNavBarItemProps(store),
+          navBarItemProps:
+              generateNavBarItemProps(store) as List<NavBarItemProp>,
         );
       },
       builder: (_, viewModel) {

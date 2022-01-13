@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plantee_app/ui/screens/side_menu/widgets/drawer_item_widget.dart';
+import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:plantee_app/redux/app/app_state.dart';
 import 'package:plantee_app/ui/screens/side_menu/sidemenu_drawer.dart';
@@ -14,6 +16,8 @@ class SidemenuConnector extends StatelessWidget {
       converter: (store) {
         return SidemenuDrawerViewModel(
           isSidemenuActive: store.state.sideMenuState.isSidemenuActive,
+          sideMenuItemProps:
+              generateSideMenuItemProps(store) as List<SideMenuItemProp>,
         );
       },
       builder: (_, viewModel) {
@@ -21,4 +25,18 @@ class SidemenuConnector extends StatelessWidget {
       },
     );
   }
+}
+
+List<dynamic> generateSideMenuItemProps(Store<AppState> store) {
+  return SideMenuItemType.values.map((type) {
+    return SideMenuItemProp(
+        type: type,
+        item: DrawerItemWidget(
+          title: type.title,
+          icon: type.iconData,
+          onPressed: () {
+            //TODO: dispatch some action, e.g. store.dispatch(ChangeTabAction(type));
+          },
+        ));
+  }).toList();
 }
